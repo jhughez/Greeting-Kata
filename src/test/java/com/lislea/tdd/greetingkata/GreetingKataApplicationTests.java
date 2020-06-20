@@ -56,4 +56,19 @@ class GreetingKataApplicationTests {
         String aGreeting = greeting.greet("Amy", "BRIAN", "Charlotte");
         assertEquals("Hello, Amy and Charlotte. AND HELLO BRIAN!", aGreeting);
     }
+
+    @Test
+    void greetReturnsSeperateNames_whenPassedCsvString() {
+        Greeting greeting = new Greeting();
+        String aGreeting = greeting.greet("Bob", "Charlie, Dianne");
+        assertEquals("Hello, Bob, Charlie, and Dianne.", aGreeting);
+    }
+
+
+    @Test
+    void greetReturnsNonSeperateNames_whenPassedCsvWithCommaEscapped() {
+        Greeting greeting = new Greeting();
+        String aGreeting = greeting.greet("Bob", "\"Charlie, Dianne\"");
+        assertEquals("Hello, Bob and Charlie, Dianne.", aGreeting);
+    }
 }
