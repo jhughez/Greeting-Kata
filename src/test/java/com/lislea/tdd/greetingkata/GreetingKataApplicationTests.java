@@ -33,7 +33,7 @@ class GreetingKataApplicationTests {
     void greetReturnsHelloBobUppercase_whenPassedUppercaseBob() {
         Greeting greeting = new Greeting();
         String aGreeting = greeting.greet("BOB");
-        assertEquals("HELLO, BOB!", aGreeting);
+        assertEquals("HELLO BOB!", aGreeting);
     }
 
     @Test
