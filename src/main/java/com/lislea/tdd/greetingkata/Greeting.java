@@ -8,7 +8,7 @@ public class Greeting {
         String messageNormal = "Hello, %s.";
         String messageShout = "HELLO %s!";
         if (names == null) {
-            return String.format("Hello, my friend.");
+            return "Hello, my friend.";
         }
         if (names.length > 1) {
             String message = "";
@@ -45,14 +45,14 @@ public class Greeting {
         if (numberOfCommas == 1)
             and = " and ";
         return csv.substring(0, csv.lastIndexOf(", ")) + and + csv.substring(csv.lastIndexOf(", ") + 2)
-                .replaceAll("%", ",");
+                .replace("%", ",");
     }
 
     private String[] getListUpperNames(String ... names) {
         List<String> nameList = new ArrayList<>();
         for (String name : names) {
             if(name.startsWith("\"") && name.endsWith("\"")){
-                name = name.replaceAll(",", "%");
+                name = name.replace(",", "%");
             }
             if (name.equals(name.toUpperCase()))
                 nameList.add(name);
@@ -64,7 +64,7 @@ public class Greeting {
         List<String> nameList = new ArrayList<String>();
         for(String name:names){
             if(name.startsWith("\"") && name.endsWith("\"")){
-                name = name.replaceAll(",", "%").replaceAll("\"", "");
+                name = name.replace(",", "%").replaceAll("\"", "");
             }
             if (!name.equals(name.toUpperCase()))
                 nameList.add(name);
